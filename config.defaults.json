@@ -1,0 +1,113 @@
+{
+	"auth" : {
+		"enabled" : true,
+		"redirectUrl" : "/Account/Membership/Login?ReturnUrl=",
+		"user": {
+			"endpoint": {
+				"protocol": "http",
+				"url": "/API/User/GetCurrentUserSettings/0",
+				"timethreshold": 5000
+			}
+		}
+	},
+	"theme": "bandit",
+	"client" : {
+		"luxAutohost": {
+			"filter": {
+				"actions": [ ]
+			},
+			"metrics": {
+				"timeout": 15000,
+				"messages": 500
+			},
+			"logging": {
+				"timeout": 5000,
+				"messages": 25
+			}
+		},
+		"themeOptions": [ "bandit", "construction" ]
+	},
+	"dataAccess": {
+		"enableCache": false
+	},
+	"environment": "dev",
+	"errorUrls": {
+		"500": "/Error/ServerError?aspxerrorpath=%url",
+		"404": "/Error/PageNotFound?aspxerrorpath=%url"
+	},
+	"name": "card.ui",
+	"rootUrl": "/node/ui/card",
+	"host": {
+		"resources": "server/resource",
+		"appName": "card.ui",
+		"port": 8018,
+		"socketIO": false,
+		"noOptions": true,
+		"anonymous": [ "/node/ui/card/_status", "/node/ui/card/images", "/node/ui/card/js", "/node/ui/card/css", "/node/ui/card/fonts" ],
+		"modules": [ "autohost-logging-collector", "autohost-metrics-collector" ],
+		"apiPrefix": "",
+		"static": {
+			"path": "public",
+			"maxAge": "1d"
+		},
+		"urlPrefix": "/node/ui/card"
+	},
+	"logging": {
+		"logChannel": "log",
+		"namespace": "card.ui",
+		"adapters": {
+			"stdOut": {
+				"level": 5,
+				"topic": "r0.#,autohost.access,card.ui.#",
+				"bailIfDebug": true
+			}
+		}
+	},
+	"metrics": {
+		"fanout": "metronic-all-ex",
+		"topic": "metronic-topic-ex"
+	},
+	"rabbit": {
+		"user": "guest",
+		"pass": "guest",
+		"host": "localhost",
+		"port": 5672,
+		"timeout": 2000,
+		"vhost": "%2f",
+		"zero": {
+			"all": true,
+			"exchange": {
+				"pub": null
+			},
+			"queue": {
+				"sub": null
+			}
+		}
+	},
+	"redis": {
+		"host": "localhost",
+		"port": 6379
+	},
+	"session": {
+		"config": {
+			"name": "card.ui.sid",
+			"secret": "I eat my peas with honey, I've done it all my life"
+		},
+		"redis" : {
+			"enabled" : false,
+			"host": "127.0.0.1",
+			"port": 6379,
+			"prefix" : "card.ui"
+		}
+	},
+	"sql": {
+		"host": "localkanban.com",
+		"user": "kanban_user",
+		"pass": "wrathofkhanban.com",
+		"database": "kanban",
+		"pool": {
+			"max": 10,
+			"min": 1
+		}
+	}
+}

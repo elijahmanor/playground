@@ -1,0 +1,13 @@
+{
+  "extends": [ "leankit/react", "leankit/test" ],
+  "globals": {
+    "_": false,
+    "lux": false,
+    "postal": false,
+    "React": false,
+    "ReactDOM": false,
+    "ReactUtils": false,
+    "getMockReactComponent": false,
+    "wrapStatelessComponent": false
+  }
+}

@@ -1,0 +1,32 @@
+{
+    "sql": {
+        "host": "localkanban.com",
+        "database": "Dogfood",
+        "user": "kanban_user",
+        "pass": "wrathofkhanban.com"
+    },
+    "auth" : {
+        "enabled" : true,
+        "redirectUrl" : "/Account/Membership/Login?ReturnUrl=",
+        "user": {
+            "endpoint": {
+                "protocol" : "http",
+                "url": "/API/User/GetCurrentUserSettings/0",
+                "timethreshold": 5000
+            }
+        }
+    },
+    "dtsService": {
+        "url": "http://localkanban.com:60022/DrillThroughStatistics/MultiGet"
+    },
+    "redis": {
+        "enabled": true,
+        "host": "localhost",
+        "port": 6379
+    },
+    "session": {
+        "redis": {
+            "enabled": true
+        }
+    }
+}

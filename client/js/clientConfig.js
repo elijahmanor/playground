@@ -1,0 +1,1 @@
+export default {"luxAutohost":{"filter":{"actions":[]},"metrics":{"timeout":15000,"messages":500},"logging":{"timeout":5000,"messages":25}},"themeOptions":["bandit","construction"],"appName":"playground","key":"card.ui.client","version":"1.0.0"};
